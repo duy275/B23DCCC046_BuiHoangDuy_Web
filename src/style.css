@@ -1,0 +1,237 @@
+.ToDoItem{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    
+}
+.ItemContent{
+    margin-right: 50px;
+    margin-left: 10px;
+    width: 90%;
+}
+
+.ToDoItem .Title{
+    font-size: 14px;
+}
+
+.ToDoItem .DueDate {
+    font-size: 12px;
+}
+
+.ToDoItem .Action *{
+    margin-right: 5px;
+}
+
+.ToDoItem input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    width: 20px; 
+    height: 20px;
+    background-color: #fff; 
+    border: 2px solid #000;
+    border-radius: 50%; 
+    position: relative;
+    cursor: pointer;
+}
+
+.ToDoItem input[type="checkbox"]:checked {
+    background-color: #007bff; 
+    border-color: #007bff;
+}
+
+.ToDoItem input[type="checkbox"]:checked::before {
+    content: "\2713"; 
+    color: white; 
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ToDoList {
+    text-align: left;
+}
+
+h1 {
+    text-align: left;
+}
+
+.root {
+    display: flex;
+
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    max-width: 90%; 
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal-content input {
+    width: 94%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.modal-content button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #d1453b; 
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #c1343b;
+}
+
+.modal-content button:last-child {
+    background-color: #ccc; 
+}
+
+.modal-content button:last-child:hover {
+    background-color: #bbb;
+}
+
+/* CSS cho ToDoItem */
+.ToDoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9; 
+    transition: box-shadow 0.3s ease;
+}
+
+.ToDoItem:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.ItemContent {
+    flex-grow: 1; 
+    margin-right: 10px; 
+}
+
+.Action {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.Action svg {
+    cursor: pointer;
+    color: #d1453b; 
+    transition: transform 0.2s ease;
+}
+
+.Action svg:hover {
+    transform: scale(1.1);
+}
+
+.AddTask {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    background-color: #f9f9f9; 
+    transition: border 0.3s ease; 
+}
+
+.AddTask:hover {
+    border-color: #d1453b; 
+}
+
+.AddTask svg {
+    font-size: 24px; 
+    color: #d1453b;
+    margin-right: 10px; 
+}
+
+.AddTask button {
+    background-color: #d1453b; 
+    color: white; 
+    border: none;
+    border-radius: 4px; 
+    padding: 8px 15px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+
+}
+
+.AddTask button:hover {
+    background-color: #c1343b; 
+}
+
+.Action {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
+
+.Action svg {
+    cursor: pointer;
+    color: #d1453b; 
+    transition: transform 0.2s ease, color 0.2s ease; 
+}
+
+.Action svg:hover {
+    transform: scale(1.1); 
+    color: #a0393c; 
+}
