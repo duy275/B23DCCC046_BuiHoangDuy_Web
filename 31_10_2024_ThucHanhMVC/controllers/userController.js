@@ -19,19 +19,20 @@ exports.createUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         User.create(name, email, mobile, hashedPassword, (err, result) => {
             if (err) return res.status(500).json({ error: err });
-            res.status(200).json({ message: 'User created successfully', user: result });
+            res.status(200).json({ message: 'User updated successfully', user: result });
         });
     } catch (err) {
         res.status(500).json({ error: 'Error hashing password' });
     }
 };
 
-exports.updateUser = (req, res) => {
+exports.updateUser = async (req, res) => {
     const { id } = req.params;
     const { name, email, mobile, password } = req.body;
-    User.update(id, name, email, mobile, password, (err, result) => {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    User.update(id, name, email, hashedPassword, mobile, (err, result) => {
         if (err) return res.status(500).json({ error: err });
-        res.status(200).json({ message: 'User updated successfully', user: result });
+        res.status(200).json({ message: 'User created successfully', user: result });
     });
 }
 
