@@ -19,6 +19,7 @@ router.post('/add',(req,res)=>{
         }
     })
 })
+
 router.get('/:id'   , (req, res) => {
     const { id } = req.params;
     db.query('SELECT * FROM todo WHERE id = ?', [id], (err, result) => {
