@@ -18,7 +18,7 @@ const User = {
     },
 
     getById: (id, callback) => {
-        db.query('SELECT * FROM users WHERE id =?', [id], callback);
+        db.query('SELECT * FROM users WHERE id =? LIMIT 1', [id], callback);
     }
 };
 

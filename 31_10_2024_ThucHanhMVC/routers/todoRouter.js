@@ -4,4 +4,5 @@ const todoController = require('../controllers/todoController'); //import từ c
 
 router.get('/', todoController.getAllTodos);
 
+router.get('/:id', todoController.getTodoById);
 module.exports = router;
