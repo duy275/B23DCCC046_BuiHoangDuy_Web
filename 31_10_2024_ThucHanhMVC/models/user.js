@@ -5,11 +5,9 @@ const User = {
         db.query('SELECT * FROM users', callback);
     },
 
-    // models/user.js
     create: (name, email, mobile, hashedPassword, callback) => {
         db.query('INSERT INTO users (name, email, mobile, password) VALUES (?, ?, ?, ?)', [name, email, mobile, hashedPassword], callback);
     },
-
 
     update: (id, name, email, password, mobile, callback) => {
         db.query('UPDATE users SET name =?, email =?, mobile =?, password =? WHERE id =?', [name, email, mobile, password, id], callback);

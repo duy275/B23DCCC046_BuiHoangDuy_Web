@@ -1,6 +1,17 @@
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
+function preprocessName(name) {
+    if (!name) return '';
+    return name
+        .trim() // Xóa khoảng trắng ở đầu và cuối
+        .replace(/\s+/g, ' ') // Thay thế nhiều khoảng trắng bằng một khoảng trắng
+        .toLowerCase() // Chuyển toàn bộ thành chữ thường
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Viết hoa chữ cái đầu mỗi từ
+        .join(' ');
+}
+
 exports.getAllUsers = (req, res) => {
     User.getAll((err, results) => {
         if (err) return res.status(500).json({ error: err });
@@ -9,7 +20,8 @@ exports.getAllUsers = (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
-    const { name, email, mobile, password } = req.body;
+    let { name, email, mobile, password } = req.body;
+    name = preprocessName(name);
 
     if (!name || !email || !mobile || !password) {
         return res.status(400).json({ error: 'All fields are required' });
@@ -28,11 +40,12 @@ exports.createUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
     const { id } = req.params;
-    const { name, email, mobile, password } = req.body;
+    let { name, email, mobile, password } = req.body;
+    name = preprocessName(name);
     const hashedPassword = await bcrypt.hash(password, 10);
     User.update(id, name, email, hashedPassword, mobile, (err, result) => {
         if (err) return res.status(500).json({ error: err });
-        res.status(200).json({ message: 'User created successfully', user: result });
+        res.status(200).json({ message: 'User updated successfully', user: result });
     });
 }
 
